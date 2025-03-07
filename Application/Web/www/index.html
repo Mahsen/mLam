@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Cloud Software for chat with mLam</title>
+    <link rel="stylesheet" type="text/css" href="Style/app.css?t=9"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">
+        <span class="m">m</span>Lam
+        <span class="underline"></span>
+    </div>
+    <input type="button" value="Speak" onclick="speakText()" />
+    <ul class="menu">
+        <!-- AddModel icon -->
+        <li class="settings-icon"><a href="#" onclick="openModal()"><i class="fas fa-plus"></i></a></li>
+        <!-- Maximum icon -->
+        <li class="settings-icon"><a href="#" onclick="toggleMaximum()"><i class="fas fa-expand"></i></a></li>
+        <!-- Setting icon -->
+        <li class="settings-icon"><a href="#" onclick="toggleSettings()"><i class="fas fa-cog"></i></a></li>
+    </ul>
+</nav>
+
+<div class="chat-container">
+    <h1>🎙️ Chat with Phi-3 Mini</h1>
+    <div id="chatbox" class="chatbox">
+        <div id="messages"></div>
+    </div>
+
+    <div class="input-container">
+        <button class="btn" onclick="startListening()">🎤 Speak</button>
+        <input type="text" id="userInput" class="input-box" placeholder="Type your message...">
+        <button class="btn" onclick="sendTextMessage()">✉️ Send Text</button>
+    </div>
+</div>
+
+<script type="text/javascript" src="Script/app.js?t=13"></script>
+<script type="text/javascript">
+    function speakText() {
+      const utterance = new SpeechSynthesisUtterance("Hello mohammad, how are you?");
+      window.speechSynthesis.speak(utterance);
+    }
+
+    setTimeout(startListening, 2000);
+</script>
+<div id="footer"> v1.20250307</div>
+</body>
+</html>
