@@ -12,7 +12,7 @@
 # Compiler
 CXX = g++
 # Compiler flags
-CXXFLAGS = -Wall -fdiagnostics-color=always -g -pthread 
+CXXFLAGS = -Wall -fdiagnostics-color=always -std=c++11 -g -pthread 
 # Library
 LIBRARY = -lsqlite3 -lcurl -ldl
 # Build dir
@@ -26,8 +26,8 @@ SRCS = *.cpp \
 # Source files www
 SRCS_WWW = Web/www/
 # Container
-CONTAINER = 192a95a55570
- 
+CONTAINER = 9bb713261435
+
 all:
 	clang-format -i -style=file  $(SRCS)
 	clear

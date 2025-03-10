@@ -45,6 +45,10 @@ busybox httpd -f -p 80 -h /www &
 
 # Start socat to handle HTTPS on port 443 and forward to HTTP (port 80)
 socat openssl-listen:443,reuseaddr,cert=/etc/server.pem,verify=0,fork tcp-connect:127.0.0.1:80 &
+
+# Start ollama
+ollama serve
+
 EOF
 
 chmod +x /root/start.sh
@@ -52,10 +56,12 @@ echo "/root/start.sh &" >> ~/.bashrc
 
 exit
 docker restart 192a95a55570
-docker exec -it 192a95a55570 "/bin/bash"
+docker exec -it 476019620ae1 "/bin/bash"
 
 docker export 192a95a55570 > App.tar
 docker import App.tar mlam
 docker run -t -i mlam /bin/bash
 docker ps -a
+
+docker run --gpus all -p 8080:433 -it mlam /bin/bash -c "ollama service start && /bin/bash"
 

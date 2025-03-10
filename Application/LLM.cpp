@@ -95,7 +95,6 @@ LLM::Status LLM::Analize(char *Request_Packet, int Request_Length,
     requestData["model"] = "phi3:medium";
     requestData["stream"] = false;
     requestData["prompt"] = Value;
-    requestData["max_tokens"] = 5;
 
     curl = curl_easy_init();
     if (curl) {
